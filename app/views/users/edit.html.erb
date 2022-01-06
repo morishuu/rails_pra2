@@ -1,0 +1,37 @@
+<div class="account_page">
+
+  <%= render "shared/menu_bar" %>
+
+    <div class="account_main">
+      <h3>アカウント編集</h3>
+      
+      <% if @user.img.attached? %>
+          <%= image_tag @user.img , class:"posted_img"%>
+      <% else %>
+          <%= image_tag 'person.png', class:"user_img" %>
+      <% end %>
+
+      <%= form_with model:@user do |f| %>
+      <%= f.file_field :img %>
+
+      <div>
+        <table class="acccount_table">
+          <tr>
+            <th><%= f.label :name , "ユーザー名" %></th>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :email ,"メールアドレス" %></th>
+            <td><%= f.text_field :email %></td>
+          </tr>
+          <tr> 
+            <th><%= f.label :profile ,"プロフィール" %></th>
+            <td><%= f.text_area :profile ,size: "35x5" %></td>
+          </tr>
+        </table>     
+        <%= f.submit "編集を完了する" ,class:"submit_btn"%>
+         
+      </div>
+      <% end %>
+    </div>
+</div>

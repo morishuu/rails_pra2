@@ -1,0 +1,34 @@
+<div class="account_page">
+
+  <%= render "shared/menu_bar" %>
+
+    <div class="account_main">
+      <h3>アカウント詳細</h3>
+
+      <% if @user.img.attached? %>
+         <%= image_tag @user.img , class:"posted_img"%>
+      <% else %>
+        <%= image_tag 'person.png', class:"user_img" %>
+      <% end %>
+
+      <div>
+        <table class="acccount_table">
+          <tr>
+            <th class="label">ユーザー名</th>
+            <td class="user_pra"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="label">メールアドレス</th>
+            <td class="user_pra"><%= @user.email %></td>
+          </tr>
+          <tr> 
+            <th class="label">プロフィール</th>
+            <td class="user_pra"><%= @user.profile %></td>
+          </tr>
+        </table>     
+      </div>
+      <div class="edit_link">
+      <%= link_to "編集" , edit_user_registration_path(@user) , class:"edit_account" %>      
+      </div>
+    </div>
+</div>

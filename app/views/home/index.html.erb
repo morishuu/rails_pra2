@@ -1,0 +1,29 @@
+<div class=topback>
+  <div class="serchbox">
+    <p>Couch Hoppersで<br>まだ見たことのない旅に出よう</p>
+    <input type="text" name="test" placeholder="ここにテキストを入力">
+    <button name="button">検索</button>
+  </div>
+</div>
+
+<h2 class="top_subtitle">おすすめのエリア</h2>
+<div class="main_city">
+  <div class="tokyoimg">
+    <%= link_to image_tag("img_tokyo.jpeg",class:"cityimg"), home_index_path %>
+    <p class="tokyo_text">東京</p>
+  </div>
+
+  <div class="osakaimg">
+    <%= link_to image_tag("img_osaka.jpeg",class:"cityimg"), home_index_path %>
+    <p class="osaka_text">大阪</p>
+  </div>
+
+  <div class="kyotoimg">
+    <%= link_to image_tag("img_kyoto.jpeg",class:"cityimg"), home_index_path %>
+    <p class="kyoto_text">京都</p>
+  </div>
+  <div class="sapporoimg">
+    <%= link_to image_tag("img_sapporo.jpeg",class:"cityimg "), home_index_path %>
+    <p class="sapporo_text">札幌</p>
+  </div>
+</div>

@@ -1,0 +1,197 @@
+*{
+    margin:0;
+    padding:0;
+    }
+
+header{
+    position:relative;
+    width: 100%;
+    height: 80px;
+    background-color: burlywood;
+}
+
+.headerlogo{
+    margin-top: 25px;
+    margin-left: 40px;
+}
+
+.sined_now{
+    display:flex;
+    float:right;
+}
+
+
+.header_username{
+    margin-top:30px;
+    margin-right:2vw;
+}
+
+.person_img{
+    display:flex;
+    float:right;
+    width:60px;
+    height:auto;
+    margin-top:13px;
+    margin-right:4vw;
+}
+
+#check_input{
+    display:none;
+}
+
+.drop_list{
+    position:absolute;
+    right:10px;
+    top:80px;
+    width:100px;
+    height:60px;
+    background-color: burlywood;
+    text-align:center;
+    z-index:10;
+    display:none;
+}
+input[type=checkbox]:checked ~ .drop_list{
+    display:block;
+}
+
+ul{
+    list-style: none;
+}
+
+.header_button{
+    display:flex;
+    float:right;
+}
+
+.top_login{
+    margin-top:15px;
+    margin-right:6vw;
+    color: white;
+    font-family:"ヒラギノ丸ゴ Pro W4";
+    font-weight: bold;
+    font-size:18px;
+    border-radius: 1vw 1vw 1vw 1vw; 
+    width:80px;
+    height: 50px;
+    background-color:#808000;
+}
+
+.top_regi{
+    margin-top:15px;
+    margin-right:12vw;
+    color: white;
+    font-family:"ヒラギノ丸ゴ Pro W4";
+    font-weight: bold;
+    font-size:20px;
+    border-radius: 1vw 1vw 1vw 1vw; 
+    width:80px;
+    height: 50px;
+    background-color:#6B8E23;
+}
+
+footer{
+    width: 100%;
+    height: 80px;
+    background-color: burlywood;
+}
+
+.Coname{
+    text-align: center;
+    padding-top: 25px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topback{
+    background-image: url("<%= asset_path('apartment-5974511.jpg') %>");
+    background-size: cover;
+    width: 100%;
+    height:40vw;
+    position:relative;
+}
+
+.serchbox{
+    background-color:white;
+    width: 40vw;
+    height: 16vw;
+    position:absolute;
+    margin-top: 8vw;
+    margin-left: 12vw;
+    fount-weight: bold;
+    font-size:2.7vw;
+    text-align:center;
+    padding-top:3vw;
+    border-radius: 2vw 2vw 2vw 2vw; 
+}
+
+.top_subtitle{
+    margin:2vw 0 0 12.5vw;
+}
+
+.main_city{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.cityimg{
+    width:14vw;
+    height:21vw;
+    margin: 3vw;
+    object-fit: cover;
+    
+}
+
+.tokyoimg{
+    position:relative;    
+}
+
+.tokyo_text{
+    display: inline-block;
+    position:absolute;
+    color:white;
+    top:70%;
+    left:40%;
+    font-size:2.3vw;
+}
+
+.osakaimg{
+    position:relative;    
+}
+
+.osaka_text{
+    display: inline-block;
+    position:absolute;
+    color:white;
+    top:70%;
+    left:40%;
+    font-size:2.3vw;
+}
+
+.kyotoimg{
+    position:relative;  
+}
+
+.kyoto_text{
+    display: inline-block;
+    position:absolute;
+    color:white;
+    top:70%;
+    left:40%;
+    font-size:2.3vw;
+}
+
+.sapporoimg{
+    position:relative;
+}
+
+.sapporo_text{
+    display: inline-block;
+    position:absolute;
+    color:white;
+    top:70%;
+    left:40%;
+    font-size:2.3vw;
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookingApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%= link_to image_tag("header_logo.png",class:"headerlogo"), home_index_path %>
+        <% if user_signed_in? %> 
+          <div class="sined_now">
+            <h4 class= "header_username"> ユーザー名: <%= current_user.name %></h4>
+            <label id="check_btn" for="check_input" />
+            <% if @user.img.attached? %>
+              <%= image_tag @user.img , class:"person_img"%>
+            <% else %>
+            <%= image_tag 'person.png', class:"person_img" %>
+           <% end %>
+              
+            </label>
+            <input type="checkbox" id="check_input">
+            <div class="drop_list">
+              <ul>
+                <li><%= link_to "設定",users_show_path(@user) %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path , method: :delete %></li>
+              </ul>
+            </div>
+          </div>
+        <% else %>
+          <div class="header_button">
+            <%= button_to "ログイン" , new_user_session_path, {method: :get , class:"top_login"}%> 
+            <%= button_to "登録" , new_user_registration_path, {method: :get , class:"top_regi"}%>
+          </div>
+        <% end %>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+    <%= yield %>
+
+   <footer>
+   <p class="Coname"> Co.Couch Hoppers</p>
+   </footer>
+  </body>
+</html>
