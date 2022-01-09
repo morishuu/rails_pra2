@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -15,20 +17,20 @@
       <%= link_to image_tag("header_logo.png",class:"headerlogo"), home_index_path %>
         <% if user_signed_in? %> 
           <div class="sined_now">
-            <h4 class= "header_username"> ユーザー名: <%= current_user.name %></h4>
+            <h5 class= "header_username d-none d-md-block"> ユーザー名: <%= current_user.name %></h5>
             <label id="check_btn" for="check_input" />
-            <% if @user.img.attached? %>
-              <%= image_tag @user.img , class:"person_img"%>
+            <% if current_user.img.attached? %>
+              <%= image_tag current_user.img.variant(gravity: :center, resize:"100x100^", crop:"100x100+0+0").processed , class:"top_poted_img"%>
             <% else %>
             <%= image_tag 'person.png', class:"person_img" %>
            <% end %>
-              
             </label>
             <input type="checkbox" id="check_input">
             <div class="drop_list">
-              <ul>
-                <li><%= link_to "設定",users_show_path(@user) %></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path , method: :delete %></li>
+              <ul class="p-0">
+                <li class="btn btn-outline-primary mt-1 li_size"><%= link_to "設定",users_show_path(@user) , class:"color_tag"%></li>
+                <li class="btn btn-outline-secondary mt-1 li_size"><%= link_to "ルーム登録",new_booking_path , class:"color_tag"%></li>
+                <li class="btn btn-outline-danger mt-1 li_size"><%= link_to "ログアウト", destroy_user_session_path , method: :delete , class:"color_tag"%></li>
               </ul>
             </div>
           </div>
@@ -39,9 +41,8 @@
           </div>
         <% end %>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <p class="inf"><%= notice %></p>
+    <p class="inf"><%= alert %></p>
 
     <%= yield %>
 

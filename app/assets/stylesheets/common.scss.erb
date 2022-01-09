@@ -24,6 +24,8 @@ header{
 .header_username{
     margin-top:30px;
     margin-right:2vw;
+    font-weight:600;
+    font-size: 2.5vw;
 }
 
 .person_img{
@@ -35,6 +37,21 @@ header{
     margin-right:4vw;
 }
 
+.top_poted_img{
+    display:flex;
+    float:right;
+    width:60px;
+    height:auto;
+    margin-top:15px;
+    margin-right:4vw;
+    border-radius: 50%;
+
+}
+
+.inf{
+    margin:0;
+}
+
 #check_input{
     display:none;
 }
@@ -43,13 +60,20 @@ header{
     position:absolute;
     right:10px;
     top:80px;
-    width:100px;
-    height:60px;
+    width:14vw;
+    height:30vw;
     background-color: burlywood;
     text-align:center;
     z-index:10;
     display:none;
+    padding-left:0;
 }
+
+.li_size{
+    width: 10vw;
+
+}
+
 input[type=checkbox]:checked ~ .drop_list{
     display:block;
 }
@@ -58,9 +82,15 @@ ul{
     list-style: none;
 }
 
+.color_tag{
+    color:white !important;
+    font-size:1vw;
+}
+
 .header_button{
     display:flex;
     float:right;
+
 }
 
 .top_login{
@@ -114,7 +144,7 @@ footer{
 .serchbox{
     background-color:white;
     width: 40vw;
-    height: 16vw;
+    height: 19vw;
     position:absolute;
     margin-top: 8vw;
     margin-left: 12vw;

@@ -1,12 +1,12 @@
 <div class=topback>
   <div class="serchbox">
-    <p>Couch Hoppersで<br>まだ見たことのない旅に出よう</p>
+    <p >Couch Hoppersで<br>まだ見たことのない旅に出よう</p>
     <input type="text" name="test" placeholder="ここにテキストを入力">
-    <button name="button">検索</button>
+    <button name="button"><%= link_to "検索" , bookings_path %></button>
   </div>
 </div>
 
-<h2 class="top_subtitle">おすすめのエリア</h2>
+<h3 class="top_subtitle">おすすめのエリア</h3>
 <div class="main_city">
   <div class="tokyoimg">
     <%= link_to image_tag("img_tokyo.jpeg",class:"cityimg"), home_index_path %>

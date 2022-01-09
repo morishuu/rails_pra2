@@ -1,2 +1,18 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<h2>検索結果</h2>
+
+<ul class = "room-list">
+  <% @bookings.each do |booking| %>
+    <li class = "list">
+      <div class="list-item">
+        <div class="item_pic_content">
+          <%= image_tag booking.room_pic.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0").processed, class:"item_img" %>
+        </div>
+          <div class="item_discri">
+          <p><%= booking.room_name %></p>
+          <p><%= booking.room_loc %></p>
+          <p>￥<%= booking.room_price %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,40 @@
+<div>
+  <h2>基本情報</h3>
+</div>
+
+<div class="room_regi">
+  <%= form_with model:@booking do |f| %>
+  <h2>ルーム情報登録</h2> 
+  <table class="table">
+    <tr>
+      <th><%= f.label :room_name , "ルーム名" %><span>必須</span></th>
+      <td><%= f.text_field :room_name, placeholder: "ルーム名を入力" %></td>
+    </tr>
+ 
+    <tr>
+      <th><%= f.label :room_com , "ルーム紹介" %><span>必須</span></th>
+      <td><%= f.text_area :room_com, placeholder: "ルーム説明を入力" %></td>
+    </tr>
+  
+    <tr>
+      <th><%= f.label :room_price , "料金" %><span>必須</span></th>
+      <td><%= f.text_field :room_price, placeholder: "一泊あたりの料金を入力" %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :room_loc , "住所" %><span>必須</span></th>
+      <td><%= f.text_field :room_loc, placeholder: "住所を入力" %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :room_pic , "ルーム画像" %><span>必須</span></th>
+      <td><%= f.file_field :room_pic %></td>
+    </tr>
+
+  </table>
+
+  <%= f.submit "登録" ,class:"submit_btn"%>
+  <% end %>
+
+
+</div>

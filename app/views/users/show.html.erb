@@ -3,10 +3,12 @@
   <%= render "shared/menu_bar" %>
 
     <div class="account_main">
+
+
       <h3>アカウント詳細</h3>
 
       <% if @user.img.attached? %>
-         <%= image_tag @user.img , class:"posted_img"%>
+         <%= image_tag @user.img.variant(gravity: :center, resize:"100x100^", crop:"100x100+0+0").processed, class:"posted_img"%>
       <% else %>
         <%= image_tag 'person.png', class:"user_img" %>
       <% end %>
