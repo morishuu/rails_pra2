@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:img])
   end
 
+  before_action :set_search
 
+  def set_search
+    @q = Booking.ransack(params[:q])
+    @bookings = @q.result
+  end
 
 end

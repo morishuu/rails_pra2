@@ -1,0 +1,30 @@
+<div class="room_show_page">
+  <h2 class="room_show_title">登録済みルーム一覧</h2>
+  
+  <table class="table show_table">
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム紹介</th>
+        <th>ルーム名</th>
+        <th>ルーム料金</th>
+        <th>作成日</th>
+        <th>削除</th>
+      </tr>
+    </thead>
+    <tbody class="show_table_body">
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= image_tag booking.room_pic.variant(gravity: :center, resize:"250x180^", crop:"250x180+0+0").processed %></td>
+          <td><%= booking.room_name %></td>
+          <td><%= booking.room_com %></td>
+          <td><%= booking.room_price %></td>
+          <td><%= booking.created_at.to_s(:datetime_jp)%></td>
+          <td><%= link_to "削除" , booking_path(booking) , method: :delete %></td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+
+
+</div>

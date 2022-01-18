@@ -1,0 +1,29 @@
+<div class="resarv_index">
+  <h2 class="resarv_index_title">予約済みルーム一覧</h2>
+  
+  <table class="table show_table">
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム紹介</th>
+        <th>ルーム名</th>
+        <th>ルーム料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody class="show_table_body">
+      <% @resarvations.each do |resarvation| %>
+        <tr>
+          <td><%= image_tag resarvation.booking.room_pic.variant(gravity: :center, resize:"250x180^", crop:"250x180+0+0").processed %></td>
+          <td><%= resarvation.booking.room_name %></td>
+          <td><%= resarvation.booking.room_com %></td>
+          <td><%= resarvation.booking.room_price %></td>
+          <td><%= resarvation.booking.created_at.to_s(:datetime_jp) %></td>
+          
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+
+
+</div>

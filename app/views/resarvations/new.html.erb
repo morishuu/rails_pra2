@@ -1,0 +1,50 @@
+<div class="new_resarv_page container">
+
+<%= render "shared/error_messages", obj:@resarvation %>
+  <div class="room_inf col-md-8">
+    
+    <%= image_tag @booking.room_pic.variant(gravity: :center, resize:"600x400^", crop:"600x400+0+0").processed %>
+    <div class="d-flex">
+      <div class="float-left d-inline icon_box">
+        <% if @booking.user.img.attached? %>
+            <%= image_tag @booking.user.img.variant(gravity: :center, resize:"100x100^", crop:"100x100+0+0").processed , class:"resarv_icon"%>
+        <% else %>
+            <%= image_tag 'person.png' , class:"no_resarv_icon" %>
+        <% end %>
+      </div>
+      <div class="room_detail flex-column ms-2">
+        <p class="room_inf_name"> <%= @booking.room_name %></p>
+        <p class="room_inf_loc"> <%= @booking.room_loc %></p>
+      </div>
+    </div>    
+    <div>  
+      <p class="room_inf_com"><%= @booking.room_com %></p>
+    </div>
+
+  </div>
+
+  <div class="resarv_form col-md-4">
+    <%= form_with model:@resarvation , url: resarvations_confirm_path(@booking) do |f| %>
+    <h3 class="form_price">￥<%= @booking.room_price %>/日</h3>
+    
+    <ul>
+
+        <li><%= f.label :start_day , "開始日" %></li>
+        <li><%= f.date_field :start_day , value: Time.now.strftime("%Y-%m-%d") %></li>
+
+        <li><%= f.label :end_day , "終了日" %></li>
+        <li><%= f.date_field :end_day , value: Time.now.strftime("%Y-%m-%d") %></li>
+        
+        <li><%= f.label :menbers , "人数" %></li>
+        <li><%= f.number_field :menbers ,value: 1 %><li>
+
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :booking_id, value: @booking.id %>
+        
+        <li><%= f.submit "確認ページへ" , class:"resarv_submit"%></li>
+    </ul>
+
+    <% end %>
+  </div>
+</div>
+
