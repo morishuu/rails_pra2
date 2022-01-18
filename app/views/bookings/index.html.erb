@@ -1,18 +1,22 @@
 <h2>検索結果</h2>
 
-<ul class = "room-list">
-  <% @bookings.each do |booking| %>
-    <li class = "list">
-      <div class="list-item">
-        <div class="item_pic_content">
-          <%= image_tag booking.room_pic.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0").processed, class:"item_img" %>
+<div class = "container-fluid room-list">
+  
+
+  <div class = "row rowbox">
+    <% @bookings.each do |booking| %>
+      <div class="col-lg-3 col-sm-4 col-5">
+      <div class="list_item m-0">
+        <div class="item_pic_content"> 
+        <%= link_to image_tag(booking.room_pic.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0").processed, class:"item_img") , new_resarvation_path(booking) %>
         </div>
-          <div class="item_discri">
-          <p><%= booking.room_name %></p>
-          <p><%= booking.room_loc %></p>
-          <p>￥<%= booking.room_price %></p>
+        <div class="item_discri">
+          <h3 class="m-1"><%= booking.room_name %></h3>
+          <p class="ml-2"><%= booking.room_loc %></p>
+          <p class="roompri">￥<%= booking.room_price %></p>
         </div>
       </div>
-    </li>
-  <% end %>
-</ul>
+      </div>
+    <% end %>
+  </div>
+</div>

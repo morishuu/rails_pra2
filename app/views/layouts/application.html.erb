@@ -14,32 +14,43 @@
 
   <body>
     <header>
-      <%= link_to image_tag("header_logo.png",class:"headerlogo"), home_index_path %>
-        <% if user_signed_in? %> 
-          <div class="sined_now">
-            <h5 class= "header_username d-none d-md-block"> ユーザー名: <%= current_user.name %></h5>
-            <label id="check_btn" for="check_input" />
-            <% if current_user.img.attached? %>
-              <%= image_tag current_user.img.variant(gravity: :center, resize:"100x100^", crop:"100x100+0+0").processed , class:"top_poted_img"%>
-            <% else %>
+      <div class="d-flex">
+        <%= link_to image_tag("header_logo.png",class:"headerlogo"), home_index_path %>
+        <div class="header_search">
+          <%= search_form_for @q, url: bookings_path do |f| %>
+            <%= f.search_field :room_loc_cont ,placeholder:"エリアを検索"%>
+            <%= f.search_field :room_com_cont ,placeholder:"キーワード検索"%>
+            <%= f.submit "検索" %>
+          <% end %>
+        </div>
+      </div>
+       <% if user_signed_in? %> 
+        <div class="sined_now">
+          <h5 class= "header_username d-none d-md-block"> ユーザー名: <%= current_user.name %></h5>
+          <label id="check_btn" for="check_input" />
+          <% if current_user.img.attached? %>
+            <%= image_tag current_user.img.variant(gravity: :center, resize:"100x100^", crop:"100x100+0+0").processed , class:"top_poted_img"%>
+          <% else %>
             <%= image_tag 'person.png', class:"person_img" %>
-           <% end %>
-            </label>
-            <input type="checkbox" id="check_input">
-            <div class="drop_list">
-              <ul class="p-0">
-                <li class="btn btn-outline-primary mt-1 li_size"><%= link_to "設定",users_show_path(@user) , class:"color_tag"%></li>
-                <li class="btn btn-outline-secondary mt-1 li_size"><%= link_to "ルーム登録",new_booking_path , class:"color_tag"%></li>
-                <li class="btn btn-outline-danger mt-1 li_size"><%= link_to "ログアウト", destroy_user_session_path , method: :delete , class:"color_tag"%></li>
-              </ul>
-            </div>
+          <% end %>
+          </label>
+          <input type="checkbox" id="check_input">
+          <div class="drop_list">
+            <ul class="p-0">
+              <li class="btn btn-outline-primary mt-1 li_size"><%= link_to "設定",users_show_path(@user) , class:"color_tag"%></li>
+              <li class="btn btn-outline-secondary mt-1 li_size"><%= link_to "ルーム登録",new_booking_path , class:"color_tag"%></li>
+              <li class="btn btn-outline-secondary mt-1 li_size"><%= link_to "登録ルーム一覧",booking_path(current_user.bookings) , class:"color_tag"%></li>
+              <li class="btn btn-outline-secondary mt-1 li_size"><%= link_to "予約ルーム一覧",resarvations_path(current_user.resarvations) , class:"color_tag"%></li>
+              <li class="btn btn-outline-danger mt-1 li_size"><%= link_to "ログアウト", destroy_user_session_path , method: :delete , class:"color_tag"%></li>
+            </ul>
           </div>
-        <% else %>
+        </div>
+       <% else %>
           <div class="header_button">
             <%= button_to "ログイン" , new_user_session_path, {method: :get , class:"top_login"}%> 
             <%= button_to "登録" , new_user_registration_path, {method: :get , class:"top_regi"}%>
           </div>
-        <% end %>
+       <% end %>
     </header>
     <p class="inf"><%= notice %></p>
     <p class="inf"><%= alert %></p>

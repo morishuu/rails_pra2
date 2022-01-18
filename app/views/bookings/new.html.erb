@@ -2,37 +2,40 @@
   <h2>基本情報</h3>
 </div>
 
+<%= render 'shared/error_messages' , obj:@booking%>
+
 <div class="room_regi">
   <%= form_with model:@booking do |f| %>
   <h2>ルーム情報登録</h2> 
-  <table class="table">
-    <tr>
-      <th><%= f.label :room_name , "ルーム名" %><span>必須</span></th>
-      <td><%= f.text_field :room_name, placeholder: "ルーム名を入力" %></td>
-    </tr>
- 
-    <tr>
-      <th><%= f.label :room_com , "ルーム紹介" %><span>必須</span></th>
-      <td><%= f.text_area :room_com, placeholder: "ルーム説明を入力" %></td>
-    </tr>
+  <table class="table room_table">
+    <tbody>
+      <tr>
+        <th><%= f.label :room_name , "ルーム名" %><span class="must">必須</span></th>
+        <td><%= f.text_field :room_name, placeholder: "ルーム名を入力" %></td>
+      </tr>
   
-    <tr>
-      <th><%= f.label :room_price , "料金" %><span>必須</span></th>
-      <td><%= f.text_field :room_price, placeholder: "一泊あたりの料金を入力" %></td>
-    </tr>
+      <tr>
+        <th><%= f.label :room_com , "ルーム紹介" %><span class="must">必須</span></th>
+        <td><%= f.text_area :room_com, size:"30x5", placeholder: "ルーム説明を入力" %></td>
+      </tr>
+    
+      <tr>
+        <th><%= f.label :room_price , "料金" %><span class="must">必須</span></th>
+        <td><%= f.text_field :room_price, placeholder: "一泊あたりの料金を入力" %></td>
+      </tr>
 
-    <tr>
-      <th><%= f.label :room_loc , "住所" %><span>必須</span></th>
-      <td><%= f.text_field :room_loc, placeholder: "住所を入力" %></td>
-    </tr>
+      <tr>
+        <th><%= f.label :room_loc , "住所" %><span class="must">必須</span></th>
+        <td><%= f.text_field :room_loc, placeholder: "住所を入力" %></td>
+      </tr>
 
-    <tr>
-      <th><%= f.label :room_pic , "ルーム画像" %><span>必須</span></th>
-      <td><%= f.file_field :room_pic %></td>
-    </tr>
-
+      <tr>
+        <th><%= f.label :room_pic , "ルーム画像" %><span class="must">必須</span></th>
+        <td><%= f.file_field :room_pic %></td>
+      </tr>
+    </tbody>
   </table>
-
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "登録" ,class:"submit_btn"%>
   <% end %>
 

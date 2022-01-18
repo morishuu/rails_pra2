@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      booking: 部屋登録
+      resarvation: 予約機能
+      user: ログイン
+    attributes:
+      user:
+        name: 名前
+        profile: プロフィール
+      booking: 
+        room_name: ルーム名
+        room_loc: 住所
+        room_com: ルーム説明
+        room_price: 料金
+        room_pic: ルーム写真
+      resarvation:
+        start_day: 開始日
+        end_day: 終了日
+        menbers: 人数

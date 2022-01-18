@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
     has_one_attached :img
 
-    
+    has_many :bookings
+    has_many :resarvations
+
     
 end

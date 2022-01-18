@@ -1,0 +1,26 @@
+
+  <h2 class="com_title">予約完了</h2>
+  <div class="comp_table_box">
+  <table class="table complete_tabele">
+  <tr>
+      <th>予約した部屋</th>
+      <td><%= @booking.room_name %></td>
+  </tr>
+  <tr>
+      <th>予約開始日</th>
+      <td><%= @resarvation.start_day %></td>
+  </tr>
+  <tr>
+      <th>予約終了日</th>
+      <td><%= @resarvation.end_day %></td>
+  </tr>
+  <tr>
+      <th>人数</th>
+      <td><%= @resarvation.menbers %></td>
+  </tr>
+  <tr>
+      <th>合計金額</th>
+      <td>￥<%= @sum %></td>
+  </tr>
+</table>
+</div>

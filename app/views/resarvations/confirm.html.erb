@@ -1,0 +1,33 @@
+<div class="conf_box rounded-lg">
+
+  <h2>予約確認画面</h2>
+
+  <h2 class="pt-2">￥<%= @booking.room_price %>/日</h2>
+
+  <ul>
+    <li>開始日</li>
+    <li class="conf_inf"><%= @resarvation.start_day %></li>
+
+    <li class="pt-2">終了日</li>
+    <li class="conf_inf"><%= @resarvation.end_day %></li>
+
+    <li class="pt-2 conf_inf">合計<%= @nights %>泊</li> 
+    <li class="pt-2 conf_inf">人数：<%= @resarvation.menbers %>人</li>
+
+    <%= hidden_field :user_id, value: current_user.id %>
+    <%= hidden_field :booking_id, value: @booking.id %>
+
+    <li class="pt-2">合計金額</li>
+    <li class="pt-2 conf_inf"><h2>￥<%= @sum %></h2></li>
+
+  </ul>
+          
+
+  <%= form_with model: @resarvation, method: :post, url: resarvations_back_path(@booking) do |f| %>
+      <%= f.submit "入力画面へ戻る" %>
+  <% end %>
+
+  <%= form_with model: @resarvation, method: :post, url: resarvations_complete_path(@booking) do |f| %>
+      <%= f.submit "確定する" %>
+  <% end %>
+</div>

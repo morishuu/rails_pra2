@@ -1,29 +1,56 @@
 <div class=topback>
   <div class="serchbox">
     <p >Couch Hoppersで<br>まだ見たことのない旅に出よう</p>
-    <input type="text" name="test" placeholder="ここにテキストを入力">
-    <button name="button"><%= link_to "検索" , bookings_path %></button>
+    <%= search_form_for @q, url: bookings_path do |f| %>
+      <%= f.search_field :room_loc_cont ,placeholder:"エリアを検索"%>
+      <%= f.submit "検索" %>
+    <% end %>
   </div>
 </div>
 
 <h3 class="top_subtitle">おすすめのエリア</h3>
 <div class="main_city">
   <div class="tokyoimg">
-    <%= link_to image_tag("img_tokyo.jpeg",class:"cityimg"), home_index_path %>
+    <label id="tokyo_search" for="tokyo_form" />
+      <%= image_tag("img_tokyo.jpeg",class:"cityimg") %>
+    </label>
+    <%= search_form_for @q, url: bookings_path do |f| %>
+      <%= f.search_field :room_loc_cont ,value: "東京" , class:"d-none"%>
+      <%= f.submit "検索" , id:"tokyo_form", class:"d-none" %>
+    <% end %>
     <p class="tokyo_text">東京</p>
   </div>
 
   <div class="osakaimg">
-    <%= link_to image_tag("img_osaka.jpeg",class:"cityimg"), home_index_path %>
+    <label id="osaka_search" for="osaka_form" />
+      <%= image_tag("img_osaka.jpeg",class:"cityimg") %>
+    </label>
+    <%= search_form_for @q, url: bookings_path do |f| %>
+      <%= f.search_field :room_loc_cont ,value: "大阪" , class:"d-none"%>
+      <%= f.submit "検索" , id:"osaka_form", class:"d-none" %>
+    <% end %>
     <p class="osaka_text">大阪</p>
   </div>
 
   <div class="kyotoimg">
-    <%= link_to image_tag("img_kyoto.jpeg",class:"cityimg"), home_index_path %>
+    <label id="kyoto_search" for="kyoto_form" />
+      <%= image_tag("img_kyoto.jpeg",class:"cityimg") %>
+    </label> 
+    <%= search_form_for @q, url: bookings_path do |f| %>
+      <%= f.search_field :room_loc_cont ,value: "京都" , class:"d-none"%>
+      <%= f.submit "検索" , id:"kyoto_form", class:"d-none" %>
+    <% end %>
     <p class="kyoto_text">京都</p>
   </div>
+
   <div class="sapporoimg">
-    <%= link_to image_tag("img_sapporo.jpeg",class:"cityimg "), home_index_path %>
+    <label id="sapporo_search" for="sapporo_form" />
+      <%= image_tag("img_sapporo.jpeg",class:"cityimg")%>
+    </label> 
+      <%= search_form_for @q, url: bookings_path do |f| %>
+        <%= f.search_field :room_loc_cont ,value: "札幌" , class:"d-none"%>
+        <%= f.submit "検索" , id:"sapporo_form", class:"d-none" %>
+      <% end %>
     <p class="sapporo_text">札幌</p>
   </div>
 </div>
